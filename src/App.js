@@ -1,12 +1,12 @@
-import './App.css';
+import './index.css';
 
 function App() {
 
   console.log("This is a console inside App")
-  const show_employees = true;
-  return (
-    <div className="App">
 
+  return (
+    <div className="App bg-red-300">
+      Hi this is react with tailwind
 
     </div>
   );
