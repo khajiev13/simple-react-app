@@ -1,6 +1,8 @@
 import "./index.css";
 import Employee from "./components/Employee";
 import { useState } from "react";
+import AddEmployee from "./components/AddEmployee";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [employees, set_employees] = useState([
@@ -41,6 +43,16 @@ function App() {
     set_employees(updated_employees);
   }
 
+  function newEmployee(name, role, img) {
+    const newEmployee = {
+      id: uuidv4(),
+      name: name,
+      role: role,
+      img: img,
+    };
+    set_employees([...employees, newEmployee]); // Take all the employees in a list and add a new one
+  }
+
   return (
     <div className="App">
       <div className="flex flex-wrap mt-3 justify-center">
@@ -57,6 +69,7 @@ function App() {
           );
         })}
       </div>
+      <AddEmployee newEmployee={newEmployee} />
     </div>
   );
 }
